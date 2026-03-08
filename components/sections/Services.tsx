@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Wrench, Car, Sparkles, CloudRain, UserX, Search } from "lucide-react";
+import Image from "next/image";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import type { LucideIcon } from "lucide-react";
 import { EASE_SMOOTH } from "@/lib/utils";
@@ -12,6 +13,7 @@ interface Service {
   title: string;
   description: string;
   badge?: string;
+  image?: string;
 }
 
 const SERVICES: Service[] = [
@@ -21,6 +23,7 @@ const SERVICES: Service[] = [
     description:
       "Punktgenaue Reparatur kleiner Lack- und Karosserieschäden — schnell, präzise und kostengünstig.",
     badge: "Ab 99€*",
+    image: "/images/service-smart-repair.jpg",
   },
   {
     icon: Car,
@@ -34,12 +37,14 @@ const SERVICES: Service[] = [
     title: "Lackierung & Lackaufbereitung",
     description:
       "Vom Teilbereich bis zur Ganzlackierung — makellose Ergebnisse für jedes Fahrzeug.",
+    image: "/images/service-lackierung.jpg",
   },
   {
     icon: CloudRain,
     title: "Hagelschäden",
     description:
       "Fachgerechte Instandsetzung von Hagelschäden mit modernsten Techniken und Werkzeugen.",
+    image: "/images/service-hagel.jpg",
   },
   {
     icon: UserX,
@@ -101,7 +106,18 @@ export default function Services() {
         >
           {SERVICES.map((service) => (
             <motion.div key={service.title} variants={item}>
-              <SpotlightCard className="flex h-full flex-col">
+              <SpotlightCard className="flex h-full flex-col p-5">
+                {service.image && (
+                  <div className="relative mb-5 h-40 w-full overflow-hidden rounded-lg">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                )}
                 <div className="mb-4 flex items-start justify-between">
                   <service.icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
                   {service.badge && (

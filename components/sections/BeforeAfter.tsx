@@ -4,16 +4,18 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
 import { EASE_SMOOTH } from "@/lib/utils";
 
+import Image from "next/image";
+
 interface SliderItem {
   label: string;
-  beforeColor: string;
-  afterColor: string;
+  beforeImage: string;
+  afterImage: string;
 }
 
 const SLIDERS: SliderItem[] = [
-  { label: "Kratzer-Reparatur", beforeColor: "#2a1a0a", afterColor: "#1a2a0a" },
-  { label: "Parkschaden", beforeColor: "#2a0a0a", afterColor: "#0a1a2a" },
-  { label: "Lackaufbereitung", beforeColor: "#1a1a2a", afterColor: "#0a2a1a" },
+  { label: "Kratzer-Reparatur", beforeImage: "/images/before-after-scratch-before.jpg", afterImage: "/images/before-after-scratch-after.jpg" },
+  { label: "Parkschaden", beforeImage: "/images/before-after-parking-before.jpg", afterImage: "/images/before-after-parking-after.jpg" },
+  { label: "Lackaufbereitung", beforeImage: "/images/before-after-polish-before.jpg", afterImage: "/images/before-after-polish-after.jpg" },
 ];
 
 function CompareSlider({ item }: { item: SliderItem }) {
@@ -50,26 +52,28 @@ function CompareSlider({ item }: { item: SliderItem }) {
       className="group relative aspect-[4/3] cursor-ew-resize overflow-hidden rounded-[12px] border border-[var(--border)] select-none touch-none"
     >
       {/* After (full background) */}
-      <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ background: item.afterColor }}
-      >
-        <span className="text-xs font-medium uppercase tracking-widest text-text-muted">
-          Nachher — Echtes Foto hier einfügen
-        </span>
+      <div className="absolute inset-0 bg-zinc-900">
+        <Image
+          src={item.afterImage}
+          alt={`Nachher ${item.label}`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
       </div>
 
       {/* Before (clipped) */}
       <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{
-          background: item.beforeColor,
-          clipPath: `inset(0 ${100 - position}% 0 0)`,
-        }}
+        className="absolute inset-0 bg-zinc-900"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <span className="text-xs font-medium uppercase tracking-widest text-text-muted">
-          Vorher — Echtes Foto hier einfügen
-        </span>
+        <Image
+          src={item.beforeImage}
+          alt={`Vorher ${item.label}`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
       </div>
 
       {/* Divider line */}

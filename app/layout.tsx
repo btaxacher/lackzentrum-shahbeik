@@ -19,6 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lackzentrum-shahbeik.de"),
   title: "Lackzentrum Shahbeik | KFZ Smart Repair & Lackierung in Köln",
   description:
     "Professionelle Smart Repair Lösungen in Köln. Parkschäden, Kratzer, Lackierung, Hagelschäden — Lackzentrum Shahbeik beseitigt jeden Makel. Über 15 Jahre Erfahrung.",
@@ -37,6 +38,14 @@ export const metadata: Metadata = {
     locale: "de_DE",
     type: "website",
     siteName: "Lackzentrum Shahbeik",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lackzentrum Shahbeik",
+      },
+    ],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://lackzentrum-shahbeik.de" },

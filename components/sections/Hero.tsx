@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { EASE_SMOOTH } from "@/lib/utils";
 
@@ -43,19 +44,17 @@ export default function Hero() {
           <Spline scene={SPLINE_SCENE_URL} />
         ) : (
           <div className="relative h-full w-full overflow-hidden">
-            {/* Metallic shimmer fallback */}
-            <div
-              className="absolute inset-0 opacity-[0.12]"
-              style={{
-                background:
-                  "linear-gradient(90deg, #0A0A0A 0%, #1a0a00 25%, #FF6B00 50%, #1a0a00 75%, #0A0A0A 100%)",
-                backgroundSize: "200% auto",
-                animation: "shimmer 8s linear infinite",
-              }}
+            {/* Fallback Image instead of gradient */}
+            <Image
+              src="/images/hero-bg.jpg"
+              alt="Luxury auto background"
+              fill
+              className="object-cover opacity-[0.85]"
+              priority
             />
             {/* Radial glow */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 z-10"
               style={{
                 background:
                   "radial-gradient(ellipse at 50% 50%, rgba(255,107,0,0.08) 0%, transparent 60%)",
