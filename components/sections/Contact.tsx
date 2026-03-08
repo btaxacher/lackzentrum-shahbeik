@@ -123,7 +123,7 @@ export default function Contact() {
                 />
                 <button
                   type="submit"
-                  className="mt-6 w-full rounded-[6px] bg-accent py-3.5 font-display text-sm tracking-wider text-white transition-colors duration-200 hover:bg-[#e55f00]"
+                  className="mt-6 w-full rounded-[6px] bg-accent py-3.5 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:bg-[#e55f00]"
                 >
                   ANFRAGE SENDEN
                 </button>
@@ -192,7 +192,7 @@ export default function Contact() {
               href="https://wa.me/4901742426527?text=Hallo%2C%20ich%20habe%20eine%20Anfrage%20bzgl.%20einer%20Reparatur."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-[6px] bg-[#25D366] px-4 py-3 font-display text-sm tracking-wider text-white transition-opacity hover:opacity-90"
+              className="flex items-center justify-center gap-2 rounded-[6px] bg-[#25D366] px-4 py-3 text-sm font-semibold tracking-wide text-white transition-opacity hover:opacity-90"
             >
               <MessageCircle className="h-5 w-5" />
               WHATSAPP NACHRICHT
