@@ -19,14 +19,14 @@ export default function MagneticButton({
   onClick,
   href,
   variant = "primary",
-  strength = 0.3,
+  strength = 0.1,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const springX = useSpring(x, { stiffness: 300, damping: 20 });
-  const springY = useSpring(y, { stiffness: 300, damping: 20 });
+  const springX = useSpring(x, { stiffness: 150, damping: 25, mass: 0.5 });
+  const springY = useSpring(y, { stiffness: 150, damping: 25, mass: 0.5 });
 
   const handleMouseMove = (e: MouseEvent) => {
     if (!ref.current) return;
