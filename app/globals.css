@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ===== Design Tokens ===== */
+:root {
+  --background: #0A0A0A;
+  --surface: #141414;
+  --surface-elevated: #1C1C1C;
+  --border: #2A2A2A;
+  --accent-primary: #FF6B00;
+  --accent-gold: #C9A84C;
+  --text-primary: #F5F0EB;
+  --text-secondary: #9A9A9A;
+  --text-muted: #5A5A5A;
+  --gradient-hero: linear-gradient(135deg, #0A0A0A 0%, #1a0a00 50%, #0A0A0A 100%);
+}
+
+/* ===== Tailwind v4 Theme ===== */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-custom: var(--border);
+  --color-accent: var(--accent-primary);
+  --color-gold: var(--accent-gold);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --animate-grain: grain 8s steps(10) infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    30% { transform: translate(5%, 5%); }
+    50% { transform: translate(-5%, 5%); }
+    70% { transform: translate(5%, -5%); }
+    90% { transform: translate(-2%, 2%); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: var(--text-primary);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ===== Focus Styles ===== */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ===== Display Font Utility ===== */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
