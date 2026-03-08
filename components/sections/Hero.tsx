@@ -2,79 +2,79 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { EASE_SMOOTH } from "@/lib/utils";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-full w-full animate-pulse rounded-lg bg-surface" />
-  ),
-});
-
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: EASE_SMOOTH },
+    transition: { duration: 0.8, ease: EASE_SMOOTH },
   },
 };
-
-// Set your Spline scene URL here, or leave empty to use the fallback gradient
-const SPLINE_SCENE_URL = "";
 
 export default function Hero() {
   return (
     <section
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden"
-      style={{ background: "var(--gradient-hero)" }}
     >
-      {/* Spline 3D or Fallback */}
-      <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[55%] lg:block">
-        {SPLINE_SCENE_URL ? (
-          <Spline scene={SPLINE_SCENE_URL} />
-        ) : (
-          <div className="relative h-full w-full overflow-hidden">
-            {/* Fallback Image instead of gradient */}
-            <Image
-              src="/images/hero-bg.jpg"
-              alt="Luxury auto background"
-              fill
-              className="object-cover opacity-[0.85]"
-              priority
-            />
-            {/* Radial glow */}
-            <div
-              className="absolute inset-0 z-10"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 50% 50%, rgba(255,107,0,0.08) 0%, transparent 60%)",
-              }}
-            />
-          </div>
-        )}
+      {/* Fullscreen Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Luxury automotive background"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        {/* Dark overlay — stronger on the left for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(105deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 40%, rgba(10,10,10,0.45) 70%, rgba(10,10,10,0.3) 100%)",
+          }}
+        />
+        {/* Subtle warm accent glow */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 70% 60%, rgba(255,107,0,0.06) 0%, transparent 55%)",
+          }}
+        />
       </div>
 
-      {/* Orange glow bottom-left (mobile too) */}
+      {/* Bottom fade into next section */}
       <div
-        className="absolute bottom-0 left-0 h-[50%] w-[50%]"
+        className="absolute bottom-0 left-0 right-0 h-32 z-[5]"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 80%, rgba(255,107,0,0.06) 0%, transparent 60%)",
+            "linear-gradient(to top, var(--background) 0%, transparent 100%)",
         }}
       />
 
+      {/* Decorative accent line */}
+      <motion.div
+        className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1.2, delay: 0.8, ease: EASE_SMOOTH }}
+      >
+        <div className="h-24 w-[2px] bg-gradient-to-b from-transparent via-accent to-transparent" />
+      </motion.div>
+
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 sm:px-8 lg:px-12">
         <motion.div
           variants={container}
           initial="hidden"
@@ -82,34 +82,36 @@ export default function Hero() {
           className="max-w-2xl"
         >
           {/* Eyebrow */}
-          <motion.p
-            variants={item}
-            className="mb-6 font-mono text-xs tracking-[0.2em] text-accent"
-          >
-            KFZ SMART REPAIR · KÖLN
-          </motion.p>
+          <motion.div variants={item} className="mb-8 flex items-center gap-3">
+            <span className="h-[1px] w-8 bg-accent" />
+            <span className="font-mono text-[11px] tracking-[0.25em] text-accent">
+              KFZ SMART REPAIR · KÖLN
+            </span>
+          </motion.div>
 
           {/* Headline */}
           <motion.h1
             variants={item}
-            className="font-display text-[clamp(4rem,10vw,9rem)] leading-[0.9] tracking-wider"
+            className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.88] tracking-wider"
           >
             <span className="block text-text-primary">PERFEKTION</span>
-            <span className="block text-text-primary">IN LACK &</span>
-            <span className="block text-accent">KAROSSERIE</span>
+            <span className="block text-text-primary">
+              IN LACK <span className="text-accent">&</span>
+            </span>
+            <span className="block text-text-primary">KAROSSERIE</span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={item}
-            className="mt-6 max-w-lg text-base leading-relaxed text-text-secondary sm:text-lg"
+            className="mt-7 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-base"
           >
             Professionelle Smart Repair Lösungen seit über 15 Jahren.
             Parkschäden, Kratzer, Schrammen — wir beseitigen jeden Makel.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
+          <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
             <MagneticButton href="#kontakt" variant="primary">
               KOSTENLOS ANFRAGEN
               <ArrowRight className="h-4 w-4" />
@@ -123,11 +125,17 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
       >
-        <ChevronDown className="h-6 w-6 text-text-muted" />
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-5 w-5 text-text-muted" />
+        </motion.div>
       </motion.div>
     </section>
   );

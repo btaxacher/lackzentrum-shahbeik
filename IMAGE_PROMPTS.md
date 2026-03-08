@@ -152,7 +152,42 @@ Background: dark workshop environment, the car's edges fade into shadow. The roo
 Photorealistic, damage documentation style photography. No text, no watermarks. Square format 1:1.
 ```
 
-**Dateinamen:** `public/images/service-smart-repair.jpg`, `public/images/service-lackierung.jpg`, `public/images/service-hagel.jpg`
+### Parkschäden & Blechschäden
+```
+Photorealistic medium-close photograph of a professional auto body technician's hands (wearing black nitrile gloves) using a pneumatic slide hammer dent puller on the rear quarter panel of a dark grey metallic sedan. The technician has attached a small glue tab to the center of a visible 12 cm diameter dent and is pulling it outward with controlled force. The dent is partially corrected — one side is already flush with the surrounding panel, the other side still shows a shallow depression.
+
+The car is positioned on a hydraulic lift at waist height inside a well-equipped body shop. Visible in the immediate background: a portable infrared paint curing lamp (not turned on), a blue plastic masking tape roll hanging from a hook, and a metal tool tray with various PDR (Paintless Dent Repair) rods and picks laid out in order.
+
+Camera angle: shooting from roughly 60 cm away, slightly above the technician's hands, looking down at the dent area. Lens: 85mm equivalent, f/3.2, shallow depth of field — the glue tab, dent, and the technician's fingertips are tack-sharp, background softly blurred. The overhead LED panel lights create clean rectangular reflections on the undamaged paint surrounding the dent, making the distortion of the dented area clearly visible by contrast.
+
+Warm workshop lighting (4200K), dark moody atmosphere. Photorealistic, editorial automotive repair photography. No text, no watermarks. Square format 1:1.
+```
+
+### Fahrerflucht-Schäden
+```
+Photorealistic photograph of the left front fender and door of a white 2020 Volkswagen Passat showing clear hit-and-run damage. The damage tells a story: a long horizontal scrape starting at the front wheel arch and running about 60 cm backward along the fender into the front door. The scrape shows layers — the white base coat is gouged away revealing dark grey primer in streaks, and there are foreign paint transfer marks in dark blue (from the other vehicle) embedded in the scrape. The fender edge near the wheel arch is slightly bent inward, and the door gap between fender and door is visibly wider than normal (about 8mm instead of 4mm), indicating the impact shifted the panel.
+
+The car is parked inside a brightly lit inspection bay of an auto body shop. A professional digital camera on a tripod is visible at the left edge of the frame (suggesting this is being documented for insurance). On the fender, two small yellow numbered evidence markers (1, 2) are placed next to the deepest damage points — standard Gutachter/insurance documentation practice.
+
+Camera angle: standing about 1.2 meters from the car, shooting at a slight downward angle. Lens: 50mm, f/5.6, moderate depth of field — the entire damage zone is sharp. Bright, even overhead lighting (5000K) for accurate color reproduction — this is documentation-style photography, not artistic. The white paint and blue transfer marks must be clearly distinguishable.
+
+Background: clean workshop wall (light grey), a clipboard with a damage report form hanging on a hook. Photorealistic, insurance documentation style. No text, no watermarks. Square format 1:1.
+```
+
+### Fahrzeugbewertung
+```
+Photorealistic photograph of a professional vehicle appraiser (male, 40s, wearing a dark navy polo shirt with a subtle embroidered company logo, holding a tablet/iPad showing a vehicle valuation form on screen) crouching next to the front-left wheel of a silver 2019 BMW 5 Series (G30). He is inspecting the tire tread depth using a yellow tread depth gauge pressed into the tire groove. His other hand holds the tablet at an angle where the screen content is partially visible (showing a checklist with green checkmarks).
+
+The car is in pristine condition — clean, polished, no visible damage. It is parked on a flat indoor inspection floor with bright overhead lighting. The BMW's wheel is a 5-spoke alloy in good condition. The appraiser's posture suggests thorough, methodical inspection.
+
+Camera angle: shooting from about 2 meters away at the appraiser's eye level (crouching height), capturing both the appraiser and the front quarter of the car. Lens: 35mm equivalent, f/4, moderate depth of field — both the appraiser and the car wheel area are in focus, the background (workshop wall with a mounted TV screen showing car data, a desk with papers) is softly blurred.
+
+Lighting: bright, professional overhead LED panels (5000K), even illumination with no harsh shadows — the kind of lighting used in official inspection bays. The mood is professional, trustworthy, competent. Color grading neutral and clean.
+
+Photorealistic, corporate/professional photography style. No text, no watermarks. Square format 1:1.
+```
+
+**Dateinamen:** `public/images/service-smart-repair.jpg`, `public/images/service-lackierung.jpg`, `public/images/service-hagel.jpg`, `public/images/service-parkschaden.jpg`, `public/images/service-fahrerflucht.jpg`, `public/images/service-bewertung.jpg`
 **Format:** 800×800 (1:1)
 
 ---

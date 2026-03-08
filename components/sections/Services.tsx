@@ -31,6 +31,7 @@ const SERVICES: Service[] = [
     description:
       "Professionelle Beseitigung von Parkremplern, Dellen und Blechverformungen aller Art.",
     badge: "Ab 149€*",
+    image: "/images/service-parkschaden.jpg",
   },
   {
     icon: Sparkles,
@@ -51,12 +52,14 @@ const SERVICES: Service[] = [
     title: "Fahrerflucht-Schäden",
     description:
       "Unterstützung bei der Schadensregulierung und professionelle Reparatur nach Fahrerflucht.",
+    image: "/images/service-fahrerflucht.jpg",
   },
   {
     icon: Search,
     title: "Fahrzeugbewertung",
     description:
       "Sachkundige Bewertung Ihres Fahrzeugs für Kauf, Verkauf oder Versicherungszwecke.",
+    image: "/images/service-bewertung.jpg",
   },
 ];
 
