@@ -54,7 +54,7 @@ export default function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-[6px] px-6 py-3 font-display text-sm tracking-wider transition-colors duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-[6px] px-6 py-3 text-[13px] font-semibold tracking-wide transition-colors duration-200",
         baseStyles,
         className
       )}

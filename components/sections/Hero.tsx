@@ -63,16 +63,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Decorative accent line */}
-      <motion.div
-        className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.2, delay: 0.8, ease: EASE_SMOOTH }}
-      >
-        <div className="h-24 w-[2px] bg-gradient-to-b from-transparent via-accent to-transparent" />
-      </motion.div>
-
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 sm:px-8 lg:px-12">
         <motion.div
