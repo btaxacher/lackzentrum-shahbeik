@@ -72,7 +72,7 @@ export default function Navbar() {
             ))}
             <a
               href="#kontakt"
-              className="inline-flex items-center gap-2 rounded-[6px] bg-accent px-4 py-2 font-display text-xs tracking-wider text-white transition-colors duration-200 hover:bg-[#e55f00]"
+              className="inline-flex items-center gap-2 rounded-[6px] bg-accent px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors duration-200 hover:bg-[#e55f00]"
             >
               KOSTENLOS ANFRAGEN
               <ArrowRight className="h-3 w-3" />
@@ -126,7 +126,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: NAV_LINKS.length * 0.1, duration: 0.4 }}
-                className="mt-4 inline-flex items-center gap-2 rounded-[6px] bg-accent px-6 py-3 font-display tracking-wider text-white"
+                className="mt-4 inline-flex items-center gap-2 rounded-[6px] bg-accent px-6 py-3 text-sm font-semibold tracking-wide text-white"
               >
                 KOSTENLOS ANFRAGEN
                 <ArrowRight className="h-4 w-4" />
