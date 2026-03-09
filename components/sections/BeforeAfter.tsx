@@ -8,14 +8,30 @@ import Image from "next/image";
 
 interface SliderItem {
   label: string;
+  description: string;
   beforeImage: string;
   afterImage: string;
 }
 
 const SLIDERS: SliderItem[] = [
-  { label: "Kratzer-Reparatur", beforeImage: "/images/before-after-scratch-before.jpg", afterImage: "/images/before-after-scratch-after.jpg" },
-  { label: "Parkschaden", beforeImage: "/images/before-after-parking-before.jpg", afterImage: "/images/before-after-parking-after.jpg" },
-  { label: "Lackaufbereitung", beforeImage: "/images/before-after-polish-before.jpg", afterImage: "/images/before-after-polish-after.jpg" },
+  {
+    label: "Kratzer-Reparatur",
+    description: "Tiefer Kratzer an der Fahrertür — vollständig beseitigt",
+    beforeImage: "/images/before-after-scratch-before.jpg",
+    afterImage: "/images/before-after-scratch-after.jpg",
+  },
+  {
+    label: "Parkschaden",
+    description: "Parkrempler am Kotflügel — nahtlos instandgesetzt",
+    beforeImage: "/images/before-after-parking-before.jpg",
+    afterImage: "/images/before-after-parking-after.jpg",
+  },
+  {
+    label: "Lackaufbereitung",
+    description: "Verwitterter Lack — professionell aufbereitet",
+    beforeImage: "/images/before-after-polish-before.jpg",
+    afterImage: "/images/before-after-polish-after.jpg",
+  },
 ];
 
 function CompareSlider({ item }: { item: SliderItem }) {
@@ -43,70 +59,74 @@ function CompareSlider({ item }: { item: SliderItem }) {
   };
 
   return (
-    <div
-      ref={containerRef}
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerLeave={handlePointerUp}
-      className="group relative aspect-[4/3] cursor-ew-resize overflow-hidden rounded-[12px] border border-[var(--border)] select-none touch-none"
-    >
-      {/* After (full background) */}
-      <div className="absolute inset-0 bg-zinc-900">
-        <Image
-          src={item.afterImage}
-          alt={`Nachher ${item.label}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
-
-      {/* Before (clipped) */}
+    <div className="flex flex-col gap-3">
       <div
-        className="absolute inset-0 bg-zinc-900"
-        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        ref={containerRef}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+        className="group relative aspect-[4/3] cursor-ew-resize overflow-hidden rounded-[12px] border border-[var(--border)] select-none touch-none"
       >
-        <Image
-          src={item.beforeImage}
-          alt={`Vorher ${item.label}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
-
-      {/* Divider line */}
-      <div
-        className="absolute top-0 bottom-0 z-10 w-[2px] bg-accent"
-        style={{ left: `${position}%` }}
-      >
-        {/* Handle */}
-        <div className="absolute top-1/2 left-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-accent bg-background/80 backdrop-blur-sm">
-          <svg
-            className="h-4 w-4 text-accent"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path d="M8 6l-4 6 4 6M16 6l4 6-4 6" />
-          </svg>
+        {/* After (full background) */}
+        <div className="absolute inset-0 bg-zinc-900 transition-transform duration-500 group-hover:scale-[1.02]">
+          <Image
+            src={item.afterImage}
+            alt={`Nachher ${item.label}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
         </div>
+
+        {/* Before (clipped) */}
+        <div
+          className="absolute inset-0 bg-zinc-900 transition-transform duration-500 group-hover:scale-[1.02]"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        >
+          <Image
+            src={item.beforeImage}
+            alt={`Vorher ${item.label}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
+
+        {/* Divider line */}
+        <div
+          className="absolute top-0 bottom-0 z-10 w-[2px] bg-accent"
+          style={{ left: `${position}%` }}
+        >
+          {/* Handle */}
+          <div className="absolute top-1/2 left-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-accent bg-accent/90 shadow-[0_0_20px_rgba(255,107,0,0.4)] backdrop-blur-sm">
+            <svg
+              className="h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path d="M8 6l-4 6 4 6M16 6l4 6-4 6" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Labels */}
+        <span className="absolute left-3 top-3 z-10 rounded-md bg-black/60 px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-white backdrop-blur-md">
+          Vorher
+        </span>
+        <span className="absolute right-3 top-3 z-10 rounded-md bg-black/60 px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-white backdrop-blur-md">
+          Nachher
+        </span>
       </div>
 
-      {/* Labels */}
-      <span className="absolute left-3 top-3 z-10 rounded bg-background/60 px-2 py-1 text-[10px] font-medium uppercase tracking-widest text-text-secondary backdrop-blur-sm">
-        Vorher
-      </span>
-      <span className="absolute right-3 top-3 z-10 rounded bg-background/60 px-2 py-1 text-[10px] font-medium uppercase tracking-widest text-text-secondary backdrop-blur-sm">
-        Nachher
-      </span>
-
-      {/* Item label */}
-      <span className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded bg-background/60 px-3 py-1 text-xs font-medium text-text-primary backdrop-blur-sm">
-        {item.label}
-      </span>
+      {/* Description under slider */}
+      <p className="text-center text-sm text-text-secondary">
+        <span className="font-medium text-text-primary">{item.label}</span>
+        {" — "}
+        {item.description}
+      </p>
     </div>
   );
 }
@@ -139,7 +159,7 @@ export default function BeforeAfter() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           {SLIDERS.map((slider) => (
             <CompareSlider key={slider.label} item={slider} />

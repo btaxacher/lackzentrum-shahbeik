@@ -17,7 +17,13 @@ export default function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
   return (
-    <section className="relative bg-surface py-16 sm:py-20">
+    <section
+      className="relative py-16 sm:py-20 border-t border-orange-500/10 border-b border-b-orange-500/10"
+      style={{
+        background:
+          "linear-gradient(180deg, var(--surface) 0%, var(--background) 100%)",
+      }}
+    >
       <div ref={ref} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {STATS.map((stat, i) => (
@@ -38,7 +44,13 @@ export default function Stats() {
               )}
               <span className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-accent">
                 {stat.display ? (
-                  stat.display
+                  <motion.span
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.6, delay: i * 0.12 + 0.3 }}
+                  >
+                    {stat.display}
+                  </motion.span>
                 ) : (
                   <NumberTicker value={stat.value} suffix={stat.suffix} />
                 )}

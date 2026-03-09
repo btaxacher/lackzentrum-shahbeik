@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Wrench, Car, Sparkles, CloudRain, UserX, Search } from "lucide-react";
+import { Wrench, Car, Sparkles, CloudRain, UserX, Search, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import type { LucideIcon } from "lucide-react";
@@ -12,7 +12,7 @@ interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
-  badge?: string;
+  badge: string;
   image?: string;
 }
 
@@ -38,6 +38,7 @@ const SERVICES: Service[] = [
     title: "Lackierung & Lackaufbereitung",
     description:
       "Vom Teilbereich bis zur Ganzlackierung — makellose Ergebnisse für jedes Fahrzeug.",
+    badge: "Auf Anfrage",
     image: "/images/service-lackierung.jpg",
   },
   {
@@ -45,6 +46,7 @@ const SERVICES: Service[] = [
     title: "Hagelschäden",
     description:
       "Fachgerechte Instandsetzung von Hagelschäden mit modernsten Techniken und Werkzeugen.",
+    badge: "Auf Anfrage",
     image: "/images/service-hagel.jpg",
   },
   {
@@ -52,6 +54,7 @@ const SERVICES: Service[] = [
     title: "Fahrerflucht-Schäden",
     description:
       "Unterstützung bei der Schadensregulierung und professionelle Reparatur nach Fahrerflucht.",
+    badge: "Auf Anfrage",
     image: "/images/service-fahrerflucht.jpg",
   },
   {
@@ -59,6 +62,7 @@ const SERVICES: Service[] = [
     title: "Fahrzeugbewertung",
     description:
       "Sachkundige Bewertung Ihres Fahrzeugs für Kauf, Verkauf oder Versicherungszwecke.",
+    badge: "Auf Anfrage",
     image: "/images/service-bewertung.jpg",
   },
 ];
@@ -108,33 +112,43 @@ export default function Services() {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {SERVICES.map((service) => (
-            <motion.div key={service.title} variants={item}>
-              <SpotlightCard className="flex h-full flex-col p-5">
+            <motion.div
+              key={service.title}
+              variants={item}
+              className="group transition-transform duration-400 hover:-translate-y-2"
+              style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+            >
+              <SpotlightCard className="flex h-full flex-col p-5 transition-shadow duration-400 group-hover:shadow-[0_0_30px_rgba(255,107,0,0.1)] group-hover:border-accent/30">
                 {service.image && (
-                  <div className="relative mb-5 h-40 w-full overflow-hidden rounded-lg">
+                  <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-lg">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
                 )}
                 <div className="mb-4 flex items-start justify-between">
                   <service.icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
-                  {service.badge && (
-                    <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-                      {service.badge}
-                    </span>
-                  )}
+                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                    {service.badge}
+                  </span>
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-text-primary">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-text-secondary">
                   {service.description}
                 </p>
+                <a
+                  href="#kontakt"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-orange-400"
+                >
+                  Jetzt anfragen
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </a>
               </SpotlightCard>
             </motion.div>
           ))}

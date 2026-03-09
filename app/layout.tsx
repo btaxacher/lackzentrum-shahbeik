@@ -3,6 +3,7 @@ import { Bebas_Neue, Inter } from "next/font/google";
 import Navbar from "@/components/navbar/Navbar";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import GrainOverlay from "@/components/ui/GrainOverlay";
+import FloatingButtons from "@/components/ui/FloatingButtons";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -80,6 +81,14 @@ const jsonLd = {
     longitude: 6.9209,
   },
   url: "https://lackzentrum-shahbeik.de",
+  image: "/images/og-image.jpg",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  openingHours: "Mo-Fr 09:00-18:00",
 };
 
 export default function RootLayout({
@@ -99,6 +108,7 @@ export default function RootLayout({
         <ScrollProgress />
         <Navbar />
         <GrainOverlay />
+        <FloatingButtons />
         <main>{children}</main>
       </body>
     </html>

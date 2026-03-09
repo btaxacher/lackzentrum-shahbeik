@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Phone, Search, Wrench, CheckCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -44,8 +44,23 @@ export default function Process() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
+  // Scroll-based progress line
+  const lineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: lineRef,
+    offset: ["start end", "end center"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <section id="prozess" className="relative bg-surface py-24 sm:py-32">
+    <section
+      id="prozess"
+      className="relative py-24 sm:py-32"
+      style={{
+        background:
+          "radial-gradient(ellipse at 50% 0%, rgba(255,107,0,0.03) 0%, transparent 60%), var(--surface)",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -64,13 +79,14 @@ export default function Process() {
 
         {/* Timeline */}
         <div ref={ref} className="relative">
-          {/* Desktop connecting line */}
-          <div className="absolute top-12 left-0 right-0 hidden h-[1px] lg:block">
+          {/* Desktop connecting line — animated on scroll */}
+          <div ref={lineRef} className="absolute top-12 left-0 right-0 hidden h-[2px] lg:block">
+            {/* Background line (grey) */}
+            <div className="h-full w-full bg-[var(--border)]" />
+            {/* Animated progress line (orange) */}
             <motion.div
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1.5, ease: EASE_SMOOTH, delay: 0.3 }}
-              className="h-full w-full origin-left bg-gradient-to-r from-accent/50 via-accent/20 to-transparent"
+              className="absolute inset-0 origin-left bg-gradient-to-r from-accent via-accent/80 to-accent/40"
+              style={{ scaleX: lineScale }}
             />
           </div>
 
@@ -88,9 +104,9 @@ export default function Process() {
                 className="relative flex flex-col items-center text-center lg:items-start lg:text-left"
               >
                 {/* Step circle */}
-                <div className="relative z-10 mb-6 flex h-24 w-24 flex-col items-center justify-center rounded-full border border-[var(--border)] bg-surface-elevated">
-                  <step.icon className="mb-1 h-6 w-6 text-accent" strokeWidth={1.5} />
-                  <span className="font-display text-xs tracking-wider text-text-muted">
+                <div className="relative z-10 mb-6 flex h-24 w-24 flex-col items-center justify-center rounded-full border-2 border-accent/30 bg-zinc-900">
+                  <step.icon className="mb-1 h-7 w-7 text-accent" strokeWidth={2} />
+                  <span className="font-display text-sm tracking-wider text-accent">
                     {step.number}
                   </span>
                 </div>

@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
+import TrustBar from "@/components/sections/TrustBar";
 import Services from "@/components/sections/Services";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import Process from "@/components/sections/Process";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Hero />
       <Stats />
+      <TrustBar />
       <Services />
       <BeforeAfter />
       <Process />
