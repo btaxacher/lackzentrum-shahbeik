@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Phone } from "lucide-react";
 
-const PHONE = "+4901742426527";
-const WHATSAPP_URL = `https://wa.me/4901742426527?text=${encodeURIComponent("Hallo, ich möchte eine Anfrage stellen.")}`;
+const PHONE = "+4901761234567";
+const WHATSAPP_URL = `https://wa.me/4901761234567?text=${encodeURIComponent("Hallo, ich möchte eine Anfrage stellen.")}`;
 
 export default function FloatingButtons() {
   return (

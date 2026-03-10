@@ -67,13 +67,13 @@ const jsonLd = {
     "Professionelle Smart Repair & Lackierung für alle KFZ-Marken in Köln.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Robert-Perthel-Str. 70",
-    addressLocality: "Köln",
-    postalCode: "50739",
+    streetAddress: "Musterstraße 1",
+    addressLocality: "Berlin",
+    postalCode: "12345",
     addressCountry: "DE",
   },
-  telephone: "+4901742426527",
-  email: "amir.shahbeik@yahoo.de",
+  telephone: "+4901761234567",
+  email: "info@example.de",
   priceRange: "Ab 99€",
   geo: {
     "@type": "GeoCoordinates",

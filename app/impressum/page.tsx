@@ -16,23 +16,23 @@ export default function Impressum() {
             Angaben gemäß § 5 TMG
           </h2>
           <p>Lackzentrum Shahbeik</p>
-          <p>Robert-Perthel-Str. 70</p>
-          <p>50739 Köln</p>
+          <p>Musterstraße 1</p>
+          <p>12345 Berlin</p>
         </div>
         <div>
           <h2 className="mb-2 text-lg font-semibold text-text-primary">
             Kontakt
           </h2>
-          <p>Telefon: 0174 242 6527</p>
-          <p>E-Mail: amir.shahbeik@yahoo.de</p>
+          <p>Telefon: 0176 123 4567</p>
+          <p>E-Mail: info@example.de</p>
         </div>
         <div>
           <h2 className="mb-2 text-lg font-semibold text-text-primary">
             Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
           </h2>
-          <p>Amir Shahbeik</p>
-          <p>Robert-Perthel-Str. 70</p>
-          <p>50739 Köln</p>
+          <p>Max Mustermann</p>
+          <p>Musterstraße 1</p>
+          <p>12345 Berlin</p>
         </div>
         {/* TODO: Vollständiges Impressum mit Steuernummer, USt-ID, etc. ergänzen */}
       </div>

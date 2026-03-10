@@ -286,7 +286,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm font-medium text-text-primary">Adresse</p>
                   <p className="text-sm text-text-secondary">
-                    Robert-Perthel-Str. 70, 50739 Köln
+                    Musterstraße 1, 12345 Berlin
                   </p>
                 </div>
               </div>
@@ -297,11 +297,11 @@ export default function Contact() {
                 <div>
                   <p className="text-sm font-medium text-text-primary">Telefon</p>
                   <a
-                    href="tel:+4901742426527"
+                    href="tel:+4901761234567"
                     className="inline-flex items-center gap-2 rounded-md bg-accent/10 px-3 py-1.5 text-sm font-semibold text-accent transition-colors hover:bg-accent/20"
                   >
                     <Phone className="h-3.5 w-3.5" />
-                    0174 242 6527
+                    0176 123 4567
                   </a>
                 </div>
               </div>
@@ -313,10 +313,10 @@ export default function Contact() {
                   <p className="text-sm font-medium text-text-primary">E-Mail</p>
                   {/* TODO: Ersetze Yahoo-Adresse durch professionelle Domain-Email (z.B. info@lackzentrum-shahbeik.de) */}
                   <a
-                    href="mailto:amir.shahbeik@yahoo.de"
+                    href="mailto:info@example.de"
                     className="text-sm text-text-secondary transition-colors hover:text-accent"
                   >
-                    amir.shahbeik@yahoo.de
+                    info@example.de
                   </a>
                 </div>
               </div>
@@ -338,7 +338,7 @@ export default function Contact() {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/4901742426527?text=Hallo%2C%20ich%20habe%20eine%20Anfrage%20bzgl.%20einer%20Reparatur."
+              href="https://wa.me/4901761234567?text=Hallo%2C%20ich%20habe%20eine%20Anfrage%20bzgl.%20einer%20Reparatur."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-[6px] bg-[#25D366] px-4 py-3 text-sm font-semibold tracking-wide text-white transition-all hover:opacity-90 animate-whatsapp-pulse"

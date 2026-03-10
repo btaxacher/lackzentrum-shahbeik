@@ -26,10 +26,10 @@ export default function Datenschutz() {
             2. Verantwortliche Stelle
           </h2>
           <p>Lackzentrum Shahbeik</p>
-          <p>Robert-Perthel-Str. 70</p>
-          <p>50739 Köln</p>
-          <p>Telefon: 0174 242 6527</p>
-          <p>E-Mail: amir.shahbeik@yahoo.de</p>
+          <p>Musterstraße 1</p>
+          <p>12345 Berlin</p>
+          <p>Telefon: 0176 123 4567</p>
+          <p>E-Mail: info@example.de</p>
         </div>
         {/* TODO: Vollständige DSGVO-konforme Datenschutzerklärung erstellen (z.B. via e-recht24.de Generator) */}
         <div>
