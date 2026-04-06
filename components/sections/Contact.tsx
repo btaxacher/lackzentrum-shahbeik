@@ -73,7 +73,7 @@ export default function Contact() {
   };
 
   const inputBase =
-    "w-full rounded-[6px] border border-[var(--border)] bg-surface px-4 py-3 pl-11 text-sm text-text-primary placeholder:text-text-muted transition-all duration-200 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+    "w-full rounded-[8px] border border-[var(--border)] bg-surface px-4 py-3 pl-11 text-sm text-text-primary placeholder:text-text-muted transition-all duration-300 focus:border-accent/60 focus:outline-none focus:ring-2 focus:ring-accent/15 focus:shadow-[0_0_15px_rgba(255,107,0,0.06)]";
 
   return (
     <section id="kontakt" className="relative bg-background py-24 sm:py-32">
@@ -129,7 +129,7 @@ export default function Contact() {
                 <motion.form
                   key="form"
                   onSubmit={handleSubmit}
-                  className="rounded-[12px] border border-[var(--border)] bg-surface-elevated p-6 sm:p-8"
+                  className="rounded-[14px] border border-white/[0.06] bg-surface-elevated/80 p-6 backdrop-blur-sm sm:p-8"
                 >
                   <div className="grid gap-4 sm:grid-cols-2">
                     {/* Name */}
@@ -254,7 +254,7 @@ export default function Contact() {
                     type="submit"
                     disabled={status === "submitting"}
                     whileTap={{ scale: 0.97 }}
-                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-[6px] bg-accent py-3.5 text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:bg-[#e55f00] hover:shadow-[0_0_20px_rgba(255,107,0,0.3)] disabled:opacity-70"
+                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-[8px] bg-gradient-to-r from-accent to-[#e55f00] py-3.5 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,107,0,0.25)] disabled:opacity-70"
                   >
                     {status === "submitting" ? (
                       <>
@@ -278,7 +278,7 @@ export default function Contact() {
             className="flex flex-col gap-6"
           >
             {/* Contact Info */}
-            <div className="space-y-5 rounded-[12px] border border-[var(--border)] bg-surface-elevated p-6">
+            <div className="space-y-5 rounded-[14px] border border-white/[0.06] bg-surface-elevated/80 p-6 backdrop-blur-sm">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10">
                   <MapPin className="h-5 w-5 text-accent" strokeWidth={1.5} />

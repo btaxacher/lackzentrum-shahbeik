@@ -70,25 +70,25 @@ function StarRating() {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="mx-3 w-[320px] shrink-0 rounded-[12px] border border-white/5 bg-surface-elevated/80 p-6 backdrop-blur-sm">
+    <div className="mx-3 w-[320px] shrink-0 rounded-[14px] border border-white/[0.06] bg-surface-elevated/70 p-6 backdrop-blur-md transition-colors duration-300 hover:border-white/[0.1]">
       {/* Decorative quote */}
-      <span className="mb-2 block font-display text-5xl leading-none text-accent/20">
+      <span className="mb-1 block font-display text-6xl leading-none text-accent/15">
         &ldquo;
       </span>
       <StarRating />
-      <p className="mb-4 text-sm leading-relaxed text-text-secondary">
+      <p className="mb-5 text-sm leading-relaxed text-text-secondary">
         {review.text}
       </p>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 border-t border-white/[0.04] pt-4">
         <div
-          className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold text-white"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-xs font-semibold text-white ring-2 ring-white/10"
           style={{ backgroundColor: review.color }}
         >
           {review.initials}
         </div>
         <div>
           <p className="text-sm font-medium text-text-primary">{review.name}</p>
-          <p className="text-xs text-text-muted">{review.date}</p>
+          <p className="text-[11px] text-text-muted">{review.date}</p>
         </div>
       </div>
     </div>

@@ -115,24 +115,31 @@ export default function Services() {
             <motion.div
               key={service.title}
               variants={item}
-              className="group transition-transform duration-400 hover:-translate-y-2"
-              style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
+              className="group transition-all duration-500 hover:-translate-y-2"
+              style={{
+                transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                perspective: "1000px",
+              }}
             >
-              <SpotlightCard className="flex h-full flex-col p-5 transition-shadow duration-400 group-hover:shadow-[0_0_30px_rgba(255,107,0,0.1)] group-hover:border-accent/30">
+              <SpotlightCard className="flex h-full flex-col p-5 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(255,107,0,0.08)] group-hover:border-accent/30">
                 {service.image && (
                   <div className="relative mb-5 aspect-[16/10] w-full overflow-hidden rounded-lg">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
+                    {/* Premium overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </div>
                 )}
                 <div className="mb-4 flex items-start justify-between">
-                  <service.icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
-                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/8 ring-1 ring-accent/15 transition-all duration-300 group-hover:bg-accent/12 group-hover:ring-accent/25">
+                    <service.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                  </div>
+                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent ring-1 ring-accent/10">
                     {service.badge}
                   </span>
                 </div>
@@ -144,10 +151,10 @@ export default function Services() {
                 </p>
                 <a
                   href="#kontakt"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-orange-400"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-all duration-300 hover:text-orange-400 hover:gap-2.5"
                 >
                   Jetzt anfragen
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </SpotlightCard>
             </motion.div>

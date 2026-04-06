@@ -92,8 +92,13 @@ body {
 
 /* ===== Selection ===== */
 ::selection {
-  background: rgba(255, 107, 0, 0.3);
+  background: rgba(255, 107, 0, 0.25);
   color: var(--text-primary);
+}
+
+/* ===== Smooth transitions for interactive elements ===== */
+a, button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ===== Scrollbar ===== */

@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#070707]">
       {/* Gradient top border */}
-      <div className="h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
@@ -42,21 +42,21 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-text-muted transition-colors hover:border-accent hover:text-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] text-text-muted transition-all duration-300 hover:border-accent/40 hover:text-accent hover:shadow-[0_0_12px_rgba(255,107,0,0.1)]"
               >
                 <Instagram className="h-4 w-4" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-text-muted transition-colors hover:border-accent hover:text-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] text-text-muted transition-all duration-300 hover:border-accent/40 hover:text-accent hover:shadow-[0_0_12px_rgba(255,107,0,0.1)]"
               >
                 <Facebook className="h-4 w-4" />
               </a>
               <a
                 href="#"
                 aria-label="Google Business"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-text-muted transition-colors hover:border-accent hover:text-accent"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] text-text-muted transition-all duration-300 hover:border-accent/40 hover:text-accent hover:shadow-[0_0_12px_rgba(255,107,0,0.1)]"
               >
                 <GoogleIcon className="h-4 w-4" />
               </a>
@@ -70,20 +70,20 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <a
               href="/impressum"
-              className="text-xs text-text-muted transition-colors hover:text-text-secondary"
+              className="text-xs text-text-muted transition-colors duration-300 hover:text-accent"
             >
               Impressum
             </a>
             <a
               href="/datenschutz"
-              className="text-xs text-text-muted transition-colors hover:text-text-secondary"
+              className="text-xs text-text-muted transition-colors duration-300 hover:text-accent"
             >
               Datenschutz
             </a>
             <a
               href="#home"
               aria-label="Nach oben scrollen"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-text-muted transition-all hover:border-accent hover:text-accent hover:-translate-y-1"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.06] text-text-muted transition-all duration-300 hover:border-accent/40 hover:text-accent hover:-translate-y-1 hover:shadow-[0_0_12px_rgba(255,107,0,0.1)]"
             >
               <ArrowUp className="h-4 w-4" />
             </a>

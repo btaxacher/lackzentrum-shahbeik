@@ -20,13 +20,12 @@ const item = {
   },
 };
 
-// Floating particles configuration
+// Floating particles — fewer, larger, more elegant
 const PARTICLES = [
-  { top: "20%", left: "65%", size: 4, delay: 0 },
-  { top: "35%", right: "15%", size: 3, delay: 1.5 },
-  { top: "60%", left: "75%", size: 5, delay: 3 },
-  { top: "75%", right: "25%", size: 3, delay: 2 },
-  { top: "45%", left: "85%", size: 4, delay: 4 },
+  { top: "25%", left: "68%", size: 3, delay: 0, duration: 5 },
+  { top: "40%", right: "12%", size: 2, delay: 2, duration: 6 },
+  { top: "65%", left: "78%", size: 4, delay: 1, duration: 7 },
+  { top: "50%", right: "20%", size: 2, delay: 3.5, duration: 5.5 },
 ];
 
 export default function Hero() {
@@ -60,29 +59,38 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 60%, rgba(255,107,0,0.06) 0%, transparent 55%)",
+              "radial-gradient(ellipse at 70% 60%, rgba(255,107,0,0.07) 0%, transparent 55%)",
+          }}
+        />
+        {/* Secondary gold ambient light */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 45%)",
           }}
         />
       </div>
 
-      {/* Floating particles */}
+      {/* Floating particles — subtle, elegant */}
       {PARTICLES.map((p, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-accent/20"
+          className="absolute rounded-full bg-gradient-to-b from-accent/30 to-gold/20"
           style={{
             top: p.top,
             left: p.left,
             right: p.right,
             width: p.size,
             height: p.size,
+            filter: "blur(0.5px)",
           }}
           animate={{
-            y: [0, -15, 0],
-            opacity: [0.2, 0.6, 0.2],
+            y: [0, -20, 0],
+            opacity: [0.15, 0.5, 0.15],
           }}
           transition={{
-            duration: 4,
+            duration: p.duration,
             delay: p.delay,
             repeat: Infinity,
             ease: "easeInOut",
@@ -132,7 +140,7 @@ export default function Hero() {
           {/* Subtitle */}
           <motion.p
             variants={item}
-            className="mt-7 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-base"
+            className="mt-7 max-w-md text-[15px] leading-relaxed text-text-secondary/90 sm:text-base"
           >
             Professionelle Smart Repair Lösungen seit über 15 Jahren.
             Parkschäden, Kratzer, Schrammen — wir beseitigen jeden Makel.
